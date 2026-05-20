@@ -4,6 +4,19 @@ target/
 !**/src/main/**/target/
 !**/src/test/**/target/
 
+# Firebase secrets
+firebase-service-account.json
+*.json.json
+
+# Build folders
+target/
+
+# IDE
+.idea/
+*.iml
+
+# Logs
+*.log
 ### STS ###
 .apt_generated
 .classpath

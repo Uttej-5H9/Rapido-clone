@@ -1,9 +1,13 @@
-FROM eclipse-temurin:17-jdk-alpine
+FROM maven:3.9-eclipse-temurin-17 AS build
 
-VOLUME /tmp
+WORKDIR /build
 
-ARG JAR_FILE=target/*.jar
+COPY . .
 
-COPY ${JAR_FILE} app.jar
+RUN mvn clean package -DskipTests
 
-ENTRYPOINT ["java","-jar","/app.jar"]
+FROM eclipse-temurin:17-jdk
+
+COPY --from=build /build/target/*.jar app.jar
+
+ENTRYPOINT ["java","-Xms256m","-Xmx512m","-jar","/app.jar"]
