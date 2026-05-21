@@ -20,6 +20,7 @@ jobs:
           java-version: 17
 
       - name: Build Application
+        working-directory: rapido-clone-backend
         run: mvn clean package -DskipTests
 
       - name: Copy files to EC2
