@@ -26,8 +26,8 @@ jobs:
           find . -name "pom.xml"
 
       - name: Build Application
-        working-directory: rapido-clone-backend/rapido-clone-backend
-        run: mvn clean package -DskipTests
+        working-directory: rapido-clone-backend
+        run: mvn clean install -DskipTests
 
       - name: Copy files to EC2
         uses: appleboy/scp-action@master
@@ -35,7 +35,7 @@ jobs:
           host: ${{ secrets.EC2_HOST }}
           username: ${{ secrets.EC2_USERNAME }}
           key: ${{ secrets.EC2_SSH_KEY }}
-          source: "rapido-clone-backend/rapido-clone-backend/*"
+          source: "rapido-clone-backend/*"
           target: "/home/${{ secrets.EC2_USERNAME }}/Rapido-clone/rapido-clone-backend"
 
       - name: Deploy to EC2
