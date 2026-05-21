@@ -19,8 +19,14 @@ jobs:
           distribution: temurin
           java-version: 17
 
+      - name: Verify Project Structure
+        run: |
+          pwd
+          ls
+          find . -name "pom.xml"
+
       - name: Build Application
-        working-directory: rapido-clone-backend
+        working-directory: rapido-clone-backend/rapido-clone-backend
         run: mvn clean package -DskipTests
 
       - name: Copy files to EC2
@@ -29,7 +35,7 @@ jobs:
           host: ${{ secrets.EC2_HOST }}
           username: ${{ secrets.EC2_USERNAME }}
           key: ${{ secrets.EC2_SSH_KEY }}
-          source: "."
+          source: "rapido-clone-backend/rapido-clone-backend/*"
           target: "/home/${{ secrets.EC2_USERNAME }}/Rapido-clone/rapido-clone-backend"
 
       - name: Deploy to EC2
