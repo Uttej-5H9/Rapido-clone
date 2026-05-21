@@ -22,7 +22,6 @@
 
 		<!-- COMMON LIBRARY -->
 		<dependency>
-(fix final workflow path!)
 		<!-- JWT API -->
 		<dependency>
 			<groupId>io.jsonwebtoken</groupId>
@@ -46,12 +45,7 @@
 			<artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>
 		</dependency>
 
-		<dependency>
-			<groupId>io.jsonwebtoken</groupId>
-			<artifactId>jjwt-jackson</artifactId>
-			<version>0.11.5</version>
-			<scope>runtime</scope>
-		</dependency>
+		
 		<dependency>
 			<groupId>com.rapido</groupId>
 			<artifactId>common-library</artifactId>
