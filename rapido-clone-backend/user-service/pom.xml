@@ -22,10 +22,7 @@
 
 		<!-- COMMON LIBRARY -->
 		<dependency>
-           <groupId>com.rapido</groupId>
-           <artifactId>common-library</artifactId>
-           <version>1.0.0</version>
-       </dependency>
+(fix final workflow path!)
 		<!-- JWT API -->
 		<dependency>
 			<groupId>io.jsonwebtoken</groupId>
